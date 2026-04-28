@@ -7,17 +7,17 @@
   "properties": {
     "channels": {
       "type": "object",
-      "description": "A map of channel identifiers to ubus destination configurations.",
+      "description": "Channel configurations.",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "path": { 
-            "type": "string", 
+          "path": {
+            "type": "string",
             "description": "The ubus object path to invoke (e.g., 'netify.metadata').",
             "pattern": "^[a-zA-Z0-9\\._\\-]+$"
           },
-          "function": { 
-            "type": "string", 
+          "function": {
+            "type": "string",
             "description": "The specific ubus method to call for published metadata.",
             "examples": ["notify", "publish", "set"]
           }

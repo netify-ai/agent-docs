@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-http.json",
+  "title": "Netify Sink HTTP Configuration",
+  "description": "JSON Schema for the Netify Sink HTTP Plugin configuration.",
+  "type": "object",
+  "properties": {
+    "timeout_connect": {
+      "type": "integer",
+      "default": 30,
+      "description": "Default connection timeout in seconds."
+    },
+    "timeout_transfer": {
+      "type": "integer",
+      "default": 300,
+      "description": "Default transfer timeout in seconds."
+    },
+    "channels": {
+      "type": "object",
+      "description": "Channel configurations.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true,
+            "description": "State of the output channel."
+          },
+          "timeout_connect": {
+            "type": "integer",
+            "description": "Connection timeout in seconds."
+          },
+          "timeout_transfer": {
+            "type": "integer",
+            "description": "Transfer timeout in seconds."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL to perform the POST operation to.",
+            "examples": ["https://api.example.com/v1/telemetry"]
+          },
+          "headers": {
+            "type": "object",
+            "description": "An object containing one or more headers to add to the request.",
+            "additionalProperties": { "type": "string" },
+            "examples": [{ "X-UUID": "${uuid_agent}", "X-UUID-Serial": "$(uuid_serial}" }]
+          }
+        },
+        "required": ["url", "headers"]
+      }
+    }
+  }
+}

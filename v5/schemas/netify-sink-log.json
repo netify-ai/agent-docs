@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-log.json",
+  "title": "Netify Sink Log Configuration",
+  "description": "JSON Schema for the Netify Sink Log Plugin configuration.",
+  "type": "object",
+  "properties": {
+    "overwrite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Default file overwrite policy."
+    },
+    "log_path": {
+      "type": "string",
+      "default": "/tmp",
+      "description": "Default output folder for log files."
+    },
+    "channels": {
+      "type": "object",
+      "description": "Channel configurations.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "default": true,
+            "description": "State of the output channel."
+          },
+          "overwrite": {
+            "type": "boolean",
+            "description": "Channel-specific overwrite policy."
+          },
+          "log_path": {
+            "type": "string",
+            "description": "Channel-specific output folder for log files."
+          },
+          "log_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Prefix prepended to generated log filenames.",
+            "examples": ["netify-intel", "security-endpoints"]
+          }
+        },
+        "required": ["log_name"]
+      }
+    }
+  }
+}
