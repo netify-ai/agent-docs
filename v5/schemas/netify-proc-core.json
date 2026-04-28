@@ -1,27 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-aggregator.json",
-  "title": "Netify Aggregator Plugin Configuration",
-  "description": "JSON Schema for the Netify Aggregator plugin configuration.",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-core.json",
+  "title": "Netify Core Processor Configuration",
+  "description": "JSON Schema for the Netify Core Processor plugin configuration.",
   "type": "object",
   "properties": {
-    "aggregator": {
-      "type": "integer",
-      "description": "Aggregator format type.",
-      "externalDocs": {
-        "description": "Aggregator telemetry formats",
-        "url": "https://www.netify.ai/documentation/agent/v5/processor/aggregator#telemetry"
-      }
-    },
-    "log_interval": {
-      "type": "integer",
-      "default": 60,
-      "description": "Interval in seconds between aggregate summary reports."
-    },
-    "privacy_mode": {
-      "type": "boolean",
-      "description": "If true, aggregation will not include breakdowns by MAC address or IP address."
-    },
     "format": {
       "$ref": "#/$defs/formatType",
       "description": "Default payload format used for all outputs unless overridden in sinks."
@@ -29,20 +12,6 @@
     "compressor": {
       "$ref": "#/$defs/compressorType",
       "description": "Default compression policy used for all outputs unless overridden in sinks."
-    },
-    "batched_rows": {
-      "type": "integer",
-      "default": 0,
-      "description": "Limits the number of aggregate records processed in a single batch. Use 0 for unlimited."
-    },
-    "nested": {
-      "type": "boolean",
-      "default": false,
-      "description": "Layout format for aggregate rows. 'true' for nested objects, 'false' for flat key-value pairs.",
-      "externalDocs": {
-        "description": "Flat versus nested information",
-        "url": "https://www.netify.ai/documentation/agent/v5/processor/aggregator#nested"
-      }
     },
     "sinks": {
       "type": "object",
@@ -64,8 +33,18 @@
             },
             "compressor": {
               "$ref": "#/$defs/compressorType"
+            },
+            "types": {
+              "type": "array",
+              "description": "Telemetry type.",
+              "items": { "type": "string", "enum": ["stream-flows", "stream-stats"] },
+              "externalDocs": {
+                "description": "Telemetry list and details",
+                "url": "https://www.netify.ai/documentation/agent/v5/processor/core#telemetry"
+              }
             }
-          }
+          },
+          "required": ["types"]
         }
       }
     }
