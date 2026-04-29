@@ -19,11 +19,30 @@
           "function": {
             "type": "string",
             "description": "The specific ubus method to call for published metadata.",
-            "examples": ["notify", "publish", "set"]
+            "examples": [
+              "notify",
+              "publish",
+              "set"
+            ]
           }
         },
-        "required": ["path", "function"]
-      }
+        "required": [
+          "path",
+          "function"
+        ]
+      },
+      "examples": [
+        {
+          "flows": {
+            "path": "netify.metadata",
+            "function": "publish"
+          },
+          "intelligence": {
+            "path": "netify.metadata",
+            "function": "notify"
+          }
+        }
+      ]
     }
   }
 }

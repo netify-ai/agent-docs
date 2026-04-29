@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-endpoints.json",
+  "title": "Netify Endpoints Telemetry",
+  "description": "JSON Schema for Netify Agent v5 endpoints telemetry.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "endpoints",
+      "description": "Telemetry record type. Always endpoints."
+    }
+  },
+  "additionalProperties": {
+    "type": "array",
+    "items": {
+      "type": "string"
+    },
+    "description": "Dynamic key for an observed endpoint MAC address. The value is a list of associated IP addresses (IPv4 and/or IPv6)."
+  }
+}

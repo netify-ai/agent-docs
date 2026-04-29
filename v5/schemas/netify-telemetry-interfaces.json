@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interfaces.json",
+  "title": "Netify Network Interfaces Telemetry",
+  "description": "JSON Schema for Netify Agent v5 network interfaces telemetry.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "interfaces",
+      "description": "Telemetry record type. Always interfaces."
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/$defs/interfaceAttributes",
+    "description": "Per-interface object keyed by interface name."
+  },
+  "$defs": {
+    "interfaceAttributes": {
+      "type": "object",
+      "description": "Attributes for a single monitored network interface.",
+      "properties": {
+        "addr": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of IP addresses assigned to the interface."
+        },
+        "capture_type": {
+          "type": "string",
+          "enum": ["nfqueue", "pcap", "tpv3"],
+          "description": "Capture type in use for the interface."
+        },
+        "mac": {
+          "type": "string",
+          "description": "Interface MAC address."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["lan", "wan"],
+          "description": "Assigned network role for the interface."
+        }
+      }
+    }
+  }
+}

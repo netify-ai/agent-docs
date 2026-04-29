@@ -42,7 +42,20 @@
           }
         },
         "required": ["log_name"]
-      }
+      },
+      "examples": [
+        {
+          "endpoints": {
+            "overwrite": true,
+            "log_path": "/var/log/telemetry",
+            "log_name": "netify-endpoints-"
+          },
+          "intel": {
+            "log_path": "/var/log/telemetry",
+            "log_name": "netify-intel-"
+          }
+        }
+      ]
     }
   }
 }

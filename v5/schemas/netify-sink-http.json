@@ -28,27 +28,54 @@
           },
           "timeout_connect": {
             "type": "integer",
-            "description": "Connection timeout in seconds."
+            "description": "Connection timeout override in seconds."
           },
           "timeout_transfer": {
             "type": "integer",
-            "description": "Transfer timeout in seconds."
+            "description": "Transfer timeout override in seconds."
           },
           "url": {
             "type": "string",
-            "format": "uri",
-            "description": "The URL to perform the POST operation to.",
-            "examples": ["https://api.example.com/v1/telemetry"]
+            "description": "The destination URL. Supports variables like ${uuid_agent}.",
+            "pattern": "^https?://[a-zA-Z0-9\\.\\-_/\\${}]+$",
+            "examples": ["https://api.example.com/v1/${uuid_agent}/telemetry"]
           },
           "headers": {
             "type": "object",
-            "description": "An object containing one or more headers to add to the request.",
-            "additionalProperties": { "type": "string" },
-            "examples": [{ "X-UUID": "${uuid_agent}", "X-UUID-Serial": "$(uuid_serial}" }]
+            "description": "HTTP headers to add to the request. Supports variables like ${uuid_agent}.",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "examples": [
+              {
+                "X-UUID": "${uuid_agent}",
+                "X-UUID-Serial": "${uuid_serial}"
+              }
+            ]
           }
         },
         "required": ["url", "headers"]
-      }
+      },
+      "examples": [
+        {
+          "flows": {
+            "enable": true,
+            "url": "https://sink.example.com/v1/flows",
+            "headers": {
+              "X-UUID": "${uuid_agent}",
+              "X-UUID-Serial": "${uuid_serial}"
+            }
+          },
+          "intel": {
+            "enable": true,
+            "url": "https://sink.example.com/v1/intel",
+            "headers": {
+              "X-UUID": "${uuid_agent}",
+              "X-UUID-Serial": "${uuid_serial}"
+            }
+          }
+        }
+      ]
     }
   }
 }

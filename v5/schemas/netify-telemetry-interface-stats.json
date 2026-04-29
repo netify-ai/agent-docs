@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interface-stats.json",
+  "title": "Netify Network Interface Stats Telemetry",
+  "description": "JSON Schema for Netify Agent v5 network interface and global stats telemetry.",
+  "type": "object",
+  "oneOf": [
+    {
+      "description": "Per-interface statistics object keyed by interface name.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "interface_stats",
+          "description": "Telemetry record type for per-interface statistics."
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/statsAttributes"
+      }
+    },
+    {
+      "description": "Global statistics object summarized across all monitored network interfaces.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "global_stats",
+          "description": "Telemetry record type for summarized global statistics."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/statsAttributes"
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "statsAttributes": {
+      "type": "object",
+      "description": "Common network interface statistics counters.",
+      "properties": {
+        "capture_dropped": {
+          "type": "integer",
+          "description": "Total number of packets dropped by the packet capture layer."
+        },
+        "capture_filtered": {
+          "type": "integer",
+          "description": "Total packets filtered out (removed) in the case where Berkely Packet Filters are in use."
+        },
+        "discarded": {
+          "type": "integer",
+          "description": "Total packet counts being discarded prior to entering the DPI engine for analysis. An example is an unsupported protocol like NetBEUI."
+        },
+        "discarded_bytes": {
+          "type": "integer",
+          "description": "Total number of discarded bytes."
+        },
+        "ethernet": {
+          "type": "integer",
+          "description": "Total number of supported Ethernet header counts seen."
+        },
+        "flow_dropped": {
+          "type": "integer",
+          "description": "Total number of packets dropped during flow processing."
+        },
+        "fragmented": {
+          "type": "integer",
+          "description": "Number of fragmented IP packets observed."
+        },
+        "icmp": {
+          "type": "integer",
+          "description": "Total number of ICMP packets."
+        },
+        "igmp": {
+          "type": "integer",
+          "description": "Total number of IGMP packets."
+        },
+        "ip": {
+          "type": "integer",
+          "description": "Total number of IP packets."
+        },
+        "ip_bytes": {
+          "type": "integer",
+          "description": "Total number of bytes carried in IP packets."
+        },
+        "largest_bytes": {
+          "type": "integer",
+          "description": "Largest frame size, in bytes."
+        },
+        "mpls": {
+          "type": "integer",
+          "description": "Total number of MPLS packets."
+        },
+        "pppoe": {
+          "type": "integer",
+          "description": "Total number of PPPoE packets."
+        },
+        "queue_dropped": {
+          "type": "integer",
+          "description": "Total number of packets dropped due to internal queue limits."
+        },
+        "raw": {
+          "type": "integer",
+          "description": "Total number of raw packets captured on the interface."
+        },
+        "tcp": {
+          "type": "integer",
+          "description": "Total number of TCP packets."
+        },
+        "tcp_resets": {
+          "type": "integer",
+          "description": "Total number of TCP reset (RST) packets."
+        },
+        "tcp_seq_errors": {
+          "type": "integer",
+          "description": "Total number of TCP sequence errors."
+        },
+        "udp": {
+          "type": "integer",
+          "description": "Total number of UDP packets."
+        },
+        "vlan": {
+          "type": "integer",
+          "description": "Total number of VLAN tagged packets."
+        },
+        "wire_bytes": {
+          "type": "integer",
+          "description": "Total number of bytes observed on the wire, including frame overhead."
+        }
+      }
+    }
+  }
+}

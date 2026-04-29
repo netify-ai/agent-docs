@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow-purge.json",
+  "title": "Netify Flow Purge Telemetry",
+  "description": "JSON Schema for Netify Agent v5 flow purge telemetry.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "flow_purge",
+      "description": "Telemetry record type. Always flow_purge."
+    },
+    "interface": {
+      "type": "string",
+      "description": "Interface name associated with the purged flow."
+    },
+    "internal": {
+      "type": "boolean",
+      "description": "Indicates whether the flow is internal to the local network context."
+    },
+    "reason": {
+      "type": "string",
+      "enum": ["closed", "expired"],
+      "description": "Purge reason reported by the engine."
+    },
+    "flow": {
+      "type": "object",
+      "description": "Container for final per-flow statistics at purge time.",
+      "properties": {
+        "detection_packets": {
+          "type": "integer",
+          "description": "Number of packets used for application/protocol detection."
+        },
+        "digest": {
+          "type": "string",
+          "description": "Current flow digest identifier."
+        },
+        "digest_prev": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of previous digest identifiers associated with the flow."
+        },
+        "last_seen_at": {
+          "type": "integer",
+          "description": "Timestamp in Unix epoch milliseconds when the flow was last observed."
+        },
+        "local_bytes": {
+          "type": "integer",
+          "description": "Bytes sent from the local endpoint."
+        },
+        "local_packets": {
+          "type": "integer",
+          "description": "Packets sent from the local endpoint."
+        },
+        "local_rate": {
+          "type": "integer",
+          "description": "Final local transmit rate for the flow."
+        },
+        "other_bytes": {
+          "type": "integer",
+          "description": "Bytes sent from the remote endpoint."
+        },
+        "other_packets": {
+          "type": "integer",
+          "description": "Packets sent from the remote endpoint."
+        },
+        "other_rate": {
+          "type": "integer",
+          "description": "Final remote transmit rate for the flow."
+        },
+        "tcp": {
+          "type": "object",
+          "description": "TCP health and error counters for TCP flows.",
+          "properties": {
+            "resets": {
+              "type": "integer",
+              "description": "Count of observed TCP reset packets for the flow."
+            },
+            "retrans": {
+              "type": "integer",
+              "description": "Count of observed TCP retransmissions for the flow."
+            },
+            "seq_errors": {
+              "type": "integer",
+              "description": "Count of TCP sequence anomalies for the flow."
+            }
+          }
+        },
+        "total_bytes": {
+          "type": "integer",
+          "description": "Total bytes seen for the flow in both directions."
+        },
+        "total_packets": {
+          "type": "integer",
+          "description": "Total packets seen for the flow in both directions."
+        }
+      }
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

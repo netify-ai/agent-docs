@@ -24,7 +24,7 @@
           },
           "bind_address": {
             "type": "string",
-            "description": "Socket type and address settings.",
+            "description": "Socket connection string. Supported protocols: unix, tcp, udp, ws, wss.",
             "pattern": "^(unix|tcp|udp|ws|wss)://.+$",
             "examples": [
               "unix:///var/run/netifyd/netify-sink.sock",
@@ -35,7 +35,19 @@
           }
         },
         "required": ["bind_address"]
-      }
+      },
+      "examples": [
+        {
+          "flows": {
+            "enable": true,
+            "bind_address": "unix:///var/run/netifyd/flows.sock"
+          },
+          "aggregator": {
+            "enable": true,
+            "bind_address": "tcp://127.0.0.1:8080"
+          }
+        }
+      ]
     }
   }
 }
