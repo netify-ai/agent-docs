@@ -1,3 +1,12 @@
+# Flow Telemetry
+
+## Flow: Overview
+The Flow telemetry record contains per-flow metadata produced by the DPI engine and flow tracker. Emitted at detection and during DPI updates and completion, it reports detected application and protocol identifiers, hostnames (SNI/HTTP Host), TLS certificate details, and protocol-specific metadata used for classification and enrichment.
+
+Use the Flow record for event-driven detection, enrichment, routing decisions, and early-alerting workflows. For periodic bandwidth and KPI reporting use the [Flow Stats Telemetry](https://www.netify.ai/documentation/agent/v5/integrations/telemetry/flow-stats), and for final per-session counters and end-state details use the [Flow Purge Telemetry](https://www.netify.ai/documentation/agent/v5/integrations/telemetry/flow-purge).
+
+## Flow: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow.json",
@@ -760,3 +769,6 @@
     }
   ]
 }
+
+```
+

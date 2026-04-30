@@ -1,3 +1,12 @@
+# Network Interface Stats Telemetry
+
+## Network Interface Stats: Overview
+The network Interface Stats and Global Stats telemetry records are your primary window into the Netify DPI engine's interaction with your network hardware. By providing real-time packet and byte telemetry for every active interface, it allows you to monitor exactly how your traffic is being observed and handled. This visibility ensures that your classification engine is receiving the raw data it needs to maintain high-accuracy visibility.
+
+The interface_stats record provides stats per network interface, while the global_stats record provides the same information summarized across all monitored network interfaces.
+
+## Network Interface Stats: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interface-stats.json",
@@ -211,3 +220,6 @@
     }
   ]
 }
+
+```
+

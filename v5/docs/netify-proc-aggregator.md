@@ -1,3 +1,16 @@
+# Aggregator Processor Plugin
+
+## Aggregator Processor: Overview
+The Aggregator Processor plugin creates structured telemetry by aggregating individual flow records from the Netify Agent's memory.
+This aggregated data is typically used for high-level dashboards with bandwidth usage statistics and key network metrics.
+
+The plugin emits several predefined summary formats (see the Telemetry section). Each format provides aggregated metrics - counts, bytes, and flow totals - plus metadata such as application, protocol, IPs, MACs, ports, VLAN, and interface statistics.
+
+## Aggregator Processor: Configuration
+The plugin is configured via the JSON file referenced by its loader (typically `/etc/netifyd/netify-proc-aggregator.json`).  The format and compressor properties define global defaults, which can be overridden per channel. See the examples below for how to apply channel-level overrides.
+
+## Aggregator Processor: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-aggregator.json",
@@ -147,3 +160,6 @@
     }
   ]
 }
+
+```
+

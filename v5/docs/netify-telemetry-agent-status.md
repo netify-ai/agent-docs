@@ -1,3 +1,10 @@
+# Agent Status Telemetry
+
+## Agent Status: Overview
+The Agent Status telemetry captures the agent's operational heartbeat, providing a clear snapshot of runtime health. It reports key metrics such as CPU utilization, memory footprint, cache performance, flow table activity, packet throughput, and overall uptime, all in a single, structured record. These metrics give you immediate insight into how the engine performs under current network conditions.
+
+## Agent Status: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-agent-status.json",
@@ -176,3 +183,6 @@
     }
   ]
 }
+
+```
+

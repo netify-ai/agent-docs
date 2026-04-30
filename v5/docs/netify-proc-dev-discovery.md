@@ -1,3 +1,19 @@
+# Device Discovery Processor Plugin
+
+## Device Discovery: Overview
+Netify device discovery utility identifies all devices communicating within the local network in near real-time and on a continual basis.
+This lets administrators keep tabs on anything from static, mainstay devices like desktops, printers and routers, to more transient devices, like
+smartphones and tablets, that regularly come and go from the network.
+
+The plugin is responsible for collecting metadata from the host where the agent is installed and securely sending
+it up to the Netify cloud for analysis. All classification is done in the cloud and the plugin receives the results of the classification from the
+machine learning models.
+
+## Device Discovery: Configuration
+The plugin is configured via the JSON file referenced by its loader (typically `/etc/netifyd/netify-proc-dev-discovery.json`).
+
+## Device Discovery: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-dev-discovery.json",
@@ -155,3 +171,6 @@
     }
   ]
 }
+
+```
+

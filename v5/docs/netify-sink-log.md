@@ -1,3 +1,13 @@
+# Log Sink Plugin
+
+## Log Sink: Overview
+The Netify log output interface enables the export of [network telemetry](https://www.netify.ai/products/netify-dpi/telemetry) and metadata from the DPI engine to local log files, which can be consumed by monitoring systems, automation scripts, or custom tools. This method is most often used for development and debugging, providing a simple, reliable way to capture telemetry without requiring persistent network connections or additional messaging layers.
+
+## Log Sink: Configuration
+The plugin is configured via the JSON file referenced by its loader (typically `/etc/netifyd/netify-sink-log.json`). Top-level properties set global defaults, while per-channel properties override those defaults and define log prefixes. Use the global settings for shared behavior, and apply per-channel overrides when specific streams need separate files, naming, or overwrite policies.
+
+## Log Sink: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-log.json",
@@ -59,3 +69,6 @@
     }
   }
 }
+
+```
+

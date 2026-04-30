@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify.ai/schemas/v5/netify-proc-flow-actions.json",
+  "title": "Netify Flow Actions Processor Configuration",
+  "description": "JSON Schema for the Netify Flow Actions Processor plugin configuration.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "description": "Tells the plugin which JSON schema is supported."
+    },
+    "reprocess_flows": {
+      "type": "boolean",
+      "description": "If true, the agent will re-evaluate all active flows on a reload."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "The timezone used in the Time of Day feature."
+    },
+    "exemptions": {
+      "type": "array",
+      "description": "Global exemptions.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "type": "object",
+      "description": "Flow actions configuration.",
+      "additionalProperties": {
+        "type": "object",
+        "description": "The specific flow action configuration (e.g., 'vpn-attempt').",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enables or disables this specific flow action."
+          },
+          "criteria": {
+            "type": ["string", "array"],
+            "description": "Expression engine criteria to match for this action."
+          },
+          "targets": {
+            "type": "array",
+            "description": "List of targets to execute when this action matches.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exemptions": {
+            "type": "array",
+            "description": "List of exemptions for this specific action.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "interface": {
+            "type": "string",
+            "default": "*",
+            "description": "The interface this action applies to. Defaults to all ('*')."
+          },
+          "halt_on_match": {
+            "type": "boolean",
+            "default": false,
+            "description": "If true, stops evaluating subsequent actions if this one matches."
+          },
+          "time_of_day": {
+            "type": "array",
+            "description": "Time of day restrictions for this action.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "array",
+                  "description": "List of days this rule applies to.",
+                  "items": {
+                    "type": "string",
+                    "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+                  }
+                },
+                "time_start": {
+                  "type": "string",
+                  "description": "Start time in HH:MM format."
+                },
+                "time_end": {
+                  "type": "string",
+                  "description": "End time in HH:MM format."
+                },
+                "policy": {
+                  "type": "string",
+                  "enum": ["inclusive", "exclusive"],
+                  "description": "Whether the time range is inclusive or exclusive."
+                }
+              }
+            }
+          }
+        },
+        "required": ["criteria"]
+      }
+    },
+    "targets": {
+      "type": "object",
+      "description": "Target definitions for flow actions.",
+      "additionalProperties": {
+        "type": "object",
+        "description": "The specific target configuration (e.g., 'ipset-block').",
+        "properties": {
+          "target_type": {
+            "type": "string",
+            "enum": ["ipset", "nftset", "ctlabel", "ctmark", "pftable", "log", "sink"],
+            "description": "The type of target to execute."
+          },
+          "target_enabled": {
+            "type": "boolean",
+            "description": "Enables or disables this specific target."
+          },
+          "set_name": {
+            "type": "string",
+            "description": "Name of the IP set or NFT set."
+          },
+          "table_name": {
+            "type": "string",
+            "description": "Name of the NFT or PF table."
+          },
+          "address_type": {
+            "type": "string",
+            "description": "Address type to match (e.g., 'src', 'dst')."
+          },
+          "labels": {
+            "type": "array",
+            "description": "Conntrack labels to apply.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mark": {
+            "type": "string",
+            "description": "Conntrack mark value."
+          },
+          "mask": {
+            "type": "string",
+            "description": "Conntrack mark mask."
+          },
+          "shift": {
+            "type": "integer",
+            "description": "Conntrack mark shift value."
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Log prefix."
+          },
+          "sink": {
+            "type": "string",
+            "description": "Sink name to send telemetry to."
+          },
+          "channel": {
+            "type": "string",
+            "description": "Sink channel to use."
+          }
+        },
+        "required": ["target_type"]
+      }
+    },
+    "target_defaults": {
+      "type": "object",
+      "description": "Default configuration overrides for targets."
+    },
+    "target_globals": {
+      "type": "object",
+      "description": "Global variables accessible within target configurations."
+    }
+  }
+}

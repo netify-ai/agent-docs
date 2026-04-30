@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-python.json",
+  "title": "Netify Python Processor Configuration",
+  "description": "JSON Schema for the Netify Python Processor plugin configuration.",
+  "type": "object",
+  "properties": {
+    "debug": {
+      "type": "boolean",
+      "description": "Specifies whether debug mode is enabled for the processor."
+    },
+    "script": {
+      "type": "string",
+      "description": "The file system path to the Python script."
+    }
+  },
+  "required": [
+    "debug",
+    "script"
+  ],
+  "examples": [
+    {
+      "debug": false,
+      "script": "${path_state_persistent}/netify-proc-python/netify-proc-python.python"
+    }
+  ]
+}

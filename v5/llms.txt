@@ -1,0 +1,25 @@
+# Netify Agent v5 AI Documentation
+
+> Machine-readable specifications and AI-optimized documentation for version 5 of the Netify DPI Agent.
+
+## Configuration Schemas
+- [Overlay](https://netify-ai.github.io/agent-docs/v5/schemas/netify-agent-overlay.json)
+- [Proc Aggregator](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-aggregator.json)
+- [Proc Core](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-core.json)
+- [Proc Lua](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-lua.json)
+- [Proc Python](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-python.json)
+- [Sink HTTP](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-http.json)
+- [Sink Log](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-log.json)
+- [Sink MQTT](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-mqtt.json)
+- [Sink Socket](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-socket.json)
+- [Sink ubus](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-ubus.json)
+
+## Telemetry Schemas
+- [Agent Status](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-agent-status.json)
+- [Endpoints](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-endpoints.json)
+- [Flow](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow.json)
+- [Flow Purge](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow-purge.json)
+- [Flow Stats](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow-stats.json)
+- [Intelligence](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-intelligence.json)
+- [Interfaces](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interfaces.json)
+- [Interface Stats](https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interface-stats.json)

@@ -1,3 +1,18 @@
+# Flow Stats Telemetry
+
+## Flow Stats: Overview
+The Flow Stats telemetry provides periodic runtime statistics for
+active flows, especially long-lived sessions such as streaming, VPN, and
+persistent service connections. It complements flow metadata by reporting
+ongoing packet, byte, and rate counters while a flow remains active.
+
+This record is most valuable for near-real-time monitoring and QoE analysis.
+Tracking directional throughput and TCP health metrics over time helps detect
+performance degradation, congestion, and retransmission-related issues before
+a flow is closed.
+
+## Flow Stats: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-flow-stats.json",
@@ -142,3 +157,6 @@
     }
   ]
 }
+
+```
+

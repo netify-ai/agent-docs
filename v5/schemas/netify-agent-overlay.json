@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify.ai/schemas/v5/netify-overlay.json",
+  "title": "Netify Application Overlay Configuration",
+  "description": "JSON Schema for Netify Agent application overlay configuration.",
+  "type": "object",
+  "properties": {
+    "version": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tag": { "type": "string" },
+          "label": { "type": "string" },
+          "description": { "type": "string" },
+          "category_id": { "type": "integer" },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "group": { "type": "string" },
+                "label": { "type": "string" },
+                "description": { "type": "string" },
+                "criteria": {
+                  "type": "object",
+                  "properties": {
+                    "applications": { "type": "array", "items": { "type": "integer" } },
+                    "protocols": { "type": "array", "items": { "type": "integer" } },
+                    "ip_protocols": { "type": "array", "items": { "type": "integer" } },
+                    "ports": { "type": "array", "items": { "type": "integer" } },
+                    "dst_ports": { "type": "array", "items": { "type": "integer" } },
+                    "src_ports": { "type": "array", "items": { "type": "integer" } }
+                  }
+                }
+              },
+              "required": ["group"]
+            }
+          }
+        },
+        "required": ["tag"]
+      }
+    }
+  }
+}

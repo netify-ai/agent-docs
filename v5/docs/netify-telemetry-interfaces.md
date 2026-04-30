@@ -1,3 +1,18 @@
+# Network Interfaces Telemetry
+
+## Network Interfaces: Overview
+The network Interfaces telemetry provides a live inventory of network
+interfaces that the Netify Agent can observe. Each interface entry includes
+addressing information, capture method, and role, making it easy to confirm
+expected interface discovery and classification.
+
+This dataset is useful for validating deployment state and troubleshooting
+capture coverage. By reviewing interface role assignments alongside addresses
+and MAC identifiers, you can quickly detect missing interfaces, unexpected
+role changes, or source mismatches in downstream analytics.
+
+## Network Interfaces: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-interfaces.json",
@@ -84,3 +99,6 @@
     }
   ]
 }
+
+```
+

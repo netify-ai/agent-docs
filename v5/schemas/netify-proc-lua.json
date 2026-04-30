@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-lua.json",
+  "title": "Netify Lua Processor Configuration",
+  "description": "JSON Schema for the Netify Lua Processor plugin configuration.",
+  "type": "object",
+  "properties": {
+    "script": {
+      "type": "string",
+      "description": "The file system path to the Lua script."
+    }
+  },
+  "required": [
+    "script"
+  ],
+  "examples": [
+    {
+      "script": "/usr/local/bin/monitor.lua"
+    }
+  ]
+}

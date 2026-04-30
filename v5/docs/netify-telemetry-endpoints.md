@@ -1,3 +1,12 @@
+# Endpoints Telemetry
+
+## Endpoints: Overview
+The Endpoints telemetry provides an inventory of discovered network endpoints, keyed by MAC address and mapped to observed IP addresses.  It offers a compact view of host identity at Layer 2 with associated Layer 3 addressing information.
+
+This data is useful for endpoint visibility, asset tracking, and change detection across local segments. Monitoring the address set per MAC over time helps identify DHCP churn, dual-stack behavior, and potential identity inconsistencies in downstream analytics.
+
+## Endpoints: JSON Schema
+```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://netify-ai.github.io/agent-docs/v5/schemas/netify-telemetry-endpoints.json",
@@ -38,3 +47,6 @@
     }
   ]
 }
+
+```
+

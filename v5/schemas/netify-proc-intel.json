@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://netify.ai/schemas/v5/netify-proc-intel.json",
+  "title": "Netify Intelligence Processor Configuration",
+  "description": "JSON Schema for the Netify Intelligence Processor plugin configuration.",
+  "type": "object",
+  "properties": {
+    "indicator_defaults": {
+      "type": "object",
+      "properties": {
+        "sink": {
+          "type": "object",
+          "properties": {
+            "flow_metadata": { "type": "string" }
+          }
+        },
+        "event_filter": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["dpi_new", "dpi_update", "dpi_complete", "flow_new", "flow_stats", "flow_expiring", "flow_expired"] }
+        }
+      }
+    },
+    "sink_targets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "sink": { "type": "string" },
+          "channels": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "enabled": { "type": "boolean" },
+                "dispatch_flags": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "indicators": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "indicator_driver": { "type": "string" },
+          "criteria": { "type": "object" },
+          "proc_targets": { "type": "array", "items": { "type": "string" } },
+          "sink_targets": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
