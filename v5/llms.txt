@@ -2,10 +2,38 @@
 
 > Machine-readable specifications and AI-optimized documentation for version 5 of the Netify DPI Agent.
 
+## Processor Plugins
+- [Aggregator Processor](https://netify-ai.github.io/agent-docs/v5/docs/netify-proc-aggregator.md)
+- [Core Processor](https://netify-ai.github.io/agent-docs/v5/docs/netify-proc-core.md)
+- [Device Discovery Processor](https://netify-ai.github.io/agent-docs/v5/docs/netify-proc-dev-discovery.md)
+- [Lua Processor](https://netify-ai.github.io/agent-docs/v5/docs/netify-proc-lua.md)
+- [Python Processor](https://netify-ai.github.io/agent-docs/v5/docs/netify-proc-python.md)
+
+## Sink Plugins
+- [HTTP Sink](https://netify-ai.github.io/agent-docs/v5/docs/netify-sink-http.md)
+- [Log Sink](https://netify-ai.github.io/agent-docs/v5/docs/netify-sink-log.md)
+- [MQTT Sink](https://netify-ai.github.io/agent-docs/v5/docs/netify-sink-mqtt.md)
+- [Socket Sink](https://netify-ai.github.io/agent-docs/v5/docs/netify-sink-socket.md)
+- [ubus Sink](https://netify-ai.github.io/agent-docs/v5/docs/netify-sink-ubus.md)
+
+## Telemetry
+- [Agent Status](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-agent-status.md)
+- [Endpoints](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-endpoints.md)
+- [Flow](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-flow.md)
+- [Flow Actions](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-flow-actions.md)
+- [Flow Purge](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-flow-purge.md)
+- [Flow Stats](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-flow-stats.md)
+- [Intelligence](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-intelligence.md)
+- [Interfaces](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-interfaces.md)
+- [Interface Stats](https://netify-ai.github.io/agent-docs/v5/docs/netify-telemetry-interface-stats.md)
+
 ## Configuration Schemas
 - [Overlay](https://netify-ai.github.io/agent-docs/v5/schemas/netify-agent-overlay.json)
 - [Proc Aggregator](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-aggregator.json)
 - [Proc Core](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-core.json)
+- [Proc Device Discovery](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-dev-discovery.json)
+- [Proc Flow Actions](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-flow-actions.json)
+- [Proc Intelligence](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-intel.json)
 - [Proc Lua](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-lua.json)
 - [Proc Python](https://netify-ai.github.io/agent-docs/v5/schemas/netify-proc-python.json)
 - [Sink HTTP](https://netify-ai.github.io/agent-docs/v5/schemas/netify-sink-http.json)
